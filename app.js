@@ -20,7 +20,7 @@ const options = {
   allowedHeaders: ['Content-Type', 'origin', 'Authorization', 'Accept'],
   credentials: true,
 };
-/*
+
 const client = new pg.Client({
     user: 'postgres',
     host: '172.16.117.193',
@@ -30,7 +30,7 @@ const client = new pg.Client({
 });
 
 client.connect();
-*/
+
 app.use(cors(options));
 
 app.use(express.json());
