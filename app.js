@@ -44,11 +44,21 @@ const cordHibin = {
 
 
 app.post('/gettingData', (request, response) => {
-  fs.writeFile('gettingData.txt', JSON.stringify(request.body), (err) => {
-      if(err) throw err;
-      console.log('Data has been replaced!');
-  });
-  response.send(request.body);
+  let endStringJson = request.body.data.split('&');
+  let currentTime = momentZone().tz("Europe/Moscow").format();
+  const query = `
+    INSERT INTO in_loradata (snowheight, temperature1layer, temperature2layer, temperature3layer, winddirection, time)
+    VALUES ($1, $2, $3, $4, $5, $6) returning *
+    `;
+  client.query(query, [endStringJson[1], endStringJson[2], endStringJson[3], endStringJson[4], (endStringJson[5]*18), currentTime], (err, res) => {
+    if (err) {
+       console.error(err);
+        return;
+        }
+    console.log('Data insert successful');
+    });
+
+  response.send(endStringJson);
 });
 
 
