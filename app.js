@@ -8,7 +8,7 @@ import momentZone from 'moment-timezone';
 const app = express();
 
 const options = {
-  origin: '*',,
+  origin: '*',
   methods: ['GET', 'HEAD', 'PUT', 'PATCH', 'POST', 'DELETE'],
   preflightContinue: false,
   optionsSuccessStatus: 200,
