@@ -2,21 +2,13 @@ import express from 'express';
 import pg from 'pg';
 import fetch from 'node-fetch';
 import cors from 'cors';
-import fs from 'fs';
 import momentZone from 'moment-timezone';
 
 
 const app = express();
 
 const options = {
-  origin: [
-    'http://localhost:3000',
-    'http://localhost',
-    'localhost',
-    '192.168.8.246',
-    'http://192.168.8.246:3000',
-    'http://192.168.8.246',
-  ],
+  origin: '*',,
   methods: ['GET', 'HEAD', 'PUT', 'PATCH', 'POST', 'DELETE'],
   preflightContinue: false,
   optionsSuccessStatus: 200,
