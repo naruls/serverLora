@@ -46,7 +46,7 @@ app.post('/gettingData', (request, response) => {
     INSERT INTO in_loradata (snowheight, temperature1layer, temperature2layer, temperatureair, uf, time)
     VALUES ($1, $2, $3, $4, $5, $6) returning *
     `;
-  client.query(query, [endStringJson[1], endStringJson[2], endStringJson[3], endStringJson[4], (endStringJson[5]*18), currentTime], (err, res) => {
+  client.query(query, [endStringJson[1], endStringJson[2], endStringJson[3], endStringJson[4], (endStringJson[5]), currentTime], (err, res) => {
     if (err) {
        console.error(err);
         return;
