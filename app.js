@@ -30,7 +30,7 @@ app.use(cors(options));
 
 app.use(express.json());
 
-const { PORT = 3005 } = process.env;
+const { PORT = 3030 } = process.env;
 
 const cordHibin = {
   lat: 67.670036,
